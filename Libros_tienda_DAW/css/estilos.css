@@ -1,0 +1,88 @@
+body {
+  background-color: #1e2a38;
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+header {
+  background-color: #1e2a38;
+  color: #0b054e;
+  border-bottom: 2px solid #f0b429;
+}
+
+.card {
+  background-color: #f8f9fa;
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-title {
+  color: #1e2a38;
+}
+
+.card-text {
+  color: #495057;
+}
+
+.btn-dark {
+  background-color: #1e2a38;
+  color: white;
+  border: none;
+}
+
+.btn-dark:hover {
+  background-color: #0f1923;
+}
+
+.btn-primary {
+  background-color: #f0b429;
+  border: none;
+  color: #1e2a38;
+}
+
+.btn-primary:hover {
+  background-color: #d9a018;
+}
+
+.btn-outline-dark {
+  border: 1px solid #f0b429;
+  color: #f0b429;
+  background-color: transparent;
+}
+
+.btn-outline-dark:hover {
+  background-color: #f0b429;
+  color: #1e2a38;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  color: #1e2a38;
+  border-radius: 8px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.table th, .table td {
+  color: #1e2a38;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.9);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.carousel {
+  max-height: 600px;
+  overflow: hidden;
+}
