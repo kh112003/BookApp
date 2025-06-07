@@ -99,6 +99,8 @@
               <th>Precio</th>
               <th>Cantidad</th>
               <th>Sub Total</th>
+              <th>Acción</th>
+
             </tr>
           </thead>
           <tbody>
@@ -107,6 +109,9 @@
               <td>{{item.precio | currency}}</td>
               <td>{{item.cantidad}}</td>
               <td>{{item.precio * item.cantidad | currency}}</td>
+              <td>
+              <button class="btn btn-sm btn-danger" ng-click="eliminarDelCarrito(item)">🗑 Eliminar</button>
+              </td>
             </tr>
           </tbody>
         </table>

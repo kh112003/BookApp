@@ -9,6 +9,14 @@ angular.module('bookApp', [])
     $scope.filtroNombre = '';
     $scope.mostrarModalDetalles = false;
     $scope.mostrarModalCarrito = false;
+    $scope.eliminarDelCarrito = function(producto) {
+  const index = $scope.carrito.indexOf(producto);
+  if (index > -1) {
+    $scope.totalCarrito -= producto.precio * producto.cantidad;
+    $scope.carrito.splice(index, 1);
+  }
+};
+
 
     // Cargar productos 
     $http.get('https://fakestoreapi.com/products').then(function(response) {
