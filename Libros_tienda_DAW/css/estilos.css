@@ -15,17 +15,26 @@ header {
   border: none;
   transition: transform 0.3s ease;
 }
-
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
 .card:hover {
   transform: translateY(-5px);
 }
 
 .card-title {
   color: #1e2a38;
+   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-text {
   color: #495057;
+  max-height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .btn-dark {
@@ -57,6 +66,13 @@ header {
 .btn-outline-dark:hover {
   background-color: #f0b429;
   color: #1e2a38;
+}
+
+.modal-body img {
+  max-height: 250px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 .modal-content {

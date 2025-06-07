@@ -1,21 +1,29 @@
 angular.module('bookApp', [])
   .controller('TiendaController', function($scope, $http) {
 
-    // Variables iniciales
-    $scope.productos = [];              // lista de productos desde el JSON
-    $scope.carrito = [];                // productos añadidos al carrito
-    $scope.totalCarrito = 0;            // total acumulado del carrito
-    $scope.categorias = [];             // lista única de categorías
-    $scope.categoriaSeleccionada = '';  // filtro por categoría
-    $scope.filtroNombre = '';           // filtro por nombre
+    $scope.productos = [];
+    $scope.carrito = [];
+    $scope.totalCarrito = 0;
+    $scope.categorias = [];
+    $scope.categoriaSeleccionada = '';
+    $scope.filtroNombre = '';
     $scope.mostrarModalDetalles = false;
     $scope.mostrarModalCarrito = false;
 
-    // cargar productos desde JSON
-    $http.get('data/productos.json').then(function(response) {
-      $scope.productos = response.data;
+    // Cargar productos 
+    $http.get('https://fakestoreapi.com/products').then(function(response) {
+      // Mapeado de datos
+      $scope.productos = response.data.map(producto => ({
+        id: producto.id,
+        nombre: producto.title,
+        autor: producto.category, 
+        precio: producto.price,
+        categoria: producto.category,
+        imagen: producto.image,
+        descripcion: producto.description
+      }));
 
-    // extraer categorías únicas de los productos
+     
       $scope.categorias = [...new Set($scope.productos.map(p => p.categoria))];
     });
 
@@ -44,7 +52,7 @@ angular.module('bookApp', [])
     };
 
     $scope.pagar = function() {
-      alert('Gracias por su preferencia. ¡Disfrute su lectura!');
+      alert('Gracias por su preferencia. ¡Disfrute su compra!');
       $scope.carrito = [];
       $scope.totalCarrito = 0;
       $scope.mostrarModalCarrito = false;
@@ -54,7 +62,7 @@ angular.module('bookApp', [])
 
     $scope.enviarMensaje = function() {
       if ($scope.contactForm.$valid) {
-        alert("Gracias por contactarnos. Estamos aquí para ayudarte, " + $scope.contacto.nombre + ":D");
+        alert("Gracias por contactarnos. Estamos aquí para ayudarte, " + $scope.contacto.nombre + " :D");
         $scope.contacto = {};
         $scope.contactForm.$setPristine();
         $scope.contactForm.$setUntouched();
