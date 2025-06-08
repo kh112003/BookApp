@@ -29,6 +29,8 @@ angular.module('bookApp', [])
         categoria: producto.category,
         imagen: producto.image,
         descripcion: producto.description
+        
+
       }));
 
      

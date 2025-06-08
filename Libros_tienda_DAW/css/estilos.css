@@ -102,14 +102,89 @@ header {
   to {opacity: 1; transform: scale(1);}
 }
 
-.carousel-inner img {
+
+/*estilos reponsives */
+
+
+#bannerCarousel {
   width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+  max-height: 1200px;
+  overflow: hidden;
+  position: relative;
 }
 
-.carousel {
-  max-height: 600px;
-  overflow: hidden;
+.carousel-inner {
+  width: 100%;
+  position: relative;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  max-height: 1200px;
+  object-fit: cover;
+}
+
+/* Controles (flechas) */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.carousel-control-prev { left: 20px; }
+.carousel-control-next { right: 20px; }
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Ajustes para tablets */
+@media (max-width: 992px) {
+  #bannerCarousel,
+  .carousel-item img {
+    max-height: 450px;
+  }
+}
+
+/* Ajustes para móviles grandes */
+@media (max-width: 768px) {
+  #bannerCarousel,
+  .carousel-item img {
+    max-height: 350px;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Ajustes para móviles pequeños */
+@media (max-width: 576px) {
+  #bannerCarousel,
+  .carousel-item img {
+    max-height: 250px;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 15px;
+    height: 15px;
+  }
 }
